@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Sold Products | Gurjeet Electronics ERP</title>
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+
+
+<style>
+*{box-sizing:border-box}
+:root{--primary:#1667e8;--primary-dark:#0f55c7;--success:#087f45;--dark:#0f1720;--muted:#6b7280;--border:#e5e7eb;--bg:#f5f7fb}
+html,body{margin:0;padding:0;font-family:'Poppins',sans-serif;background:var(--bg);color:#243044}
+body{min-height:100vh}
+a{text-decoration:none}
+.wrapper{display:flex;min-height:100vh}
+.sidebar{position:fixed;left:0;top:0;bottom:0;width:270px;background:#0d141d;color:#fff;padding:24px 14px;overflow-y:auto;z-index:1030;box-shadow:4px 0 18px rgba(0,0,0,.08)}
+.logo{display:flex;align-items:center;gap:12px;padding:4px 18px 28px;font-size:24px;font-weight:700;color:#e9eef8}
+.logo i{color:#2878f0;font-size:29px}
+.menu{list-style:none;padding:0;margin:0}
+.menu li{margin:7px 0}
+.menu a{display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:10px;color:#cbd5e1;font-weight:500;transition:.2s}
+.menu a i{width:22px;text-align:center;font-size:18px}
+.menu a:hover{background:#182536;color:#fff}
+.menu li.active a{background:#155ed8;color:#fff}
+.main-content{margin-left:270px;width:calc(100% - 270px);padding:30px 34px}
+.topbar{display:flex;justify-content:space-between;align-items:center;background:#fff;padding:22px 26px;border-radius:14px;box-shadow:0 4px 18px rgba(15,23,42,.05)}
+.topbar h4{font-weight:700;color:#26344b}
+.topbar small{font-size:13px}
+.btn{border-radius:10px;font-weight:600;padding:11px 18px}
+.btn-success{background:var(--success);border-color:var(--success)}
+.btn-success:hover{background:#066a39;border-color:#066a39}
+.card{border-radius:14px!important;background:#fff}
+.card-body{padding:24px}
+.form-label{color:#334155;font-size:14px}
+.form-control,.form-select{border:1px solid #dfe4ea;border-radius:10px;padding:12px 14px;min-height:46px;box-shadow:none!important}
+.form-control:focus,.form-select:focus{border-color:#4c8df5;box-shadow:0 0 0 3px rgba(22,103,232,.1)!important}
+.table{margin-bottom:0}
+.table th{font-size:13px;color:#475569;white-space:nowrap}
+.table td{font-size:13px;color:#334155;white-space:nowrap}
+.table-responsive{border-radius:10px}
+.badge{border-radius:20px;padding:7px 10px}
+.modal-content{border:0;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.modal-header{padding:18px 24px;border:0}
+.modal-header.bg-primary{background:linear-gradient(135deg,#1768ec,#0f5bd1)!important}
+.modal-title{font-weight:700}
+.modal-body{padding:26px}
+.modal-footer{padding:18px 24px;border-top:1px solid #edf0f3}
+#productPreview{border-radius:12px;background:#f7f9fc!important}
+#productPreview .card-body{padding:18px}
+#sellMessage{border-radius:10px}
+.summary-card{min-height:105px}
+@media(max-width:992px){.sidebar{width:220px}.main-content{margin-left:220px;width:calc(100% - 220px);padding:22px}.menu a{padding:12px 14px}.logo{padding-left:10px}.logo span{font-size:20px}}
+@media(max-width:768px){.sidebar{position:relative;width:100%;height:auto;min-height:auto}.wrapper{display:block}.main-content{margin-left:0;width:100%;padding:15px}.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:5px}.menu li{margin:0}.menu a{font-size:12px;padding:10px}.logo{padding:5px 10px 18px}.topbar{gap:15px;align-items:flex-start;flex-direction:column}.topbar .btn{width:100%}.modal-dialog{margin:10px}.modal-body{padding:18px}}
+@media(max-width:480px){.menu{grid-template-columns:1fr}.card-body{padding:16px}.modal-footer{flex-direction:column}.modal-footer button{width:100%}}
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="wrapper">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            <span>Gurjeet ERP</span>
+
+        </div>
+
+
+        <ul class="menu">
+
+
+            <li>
+
+                <a href="/dashboard">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="/brands">
+
+                    <i class="fa-solid fa-tags"></i>
+
+                    Brand Management
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="/products">
+
+                    <i class="fa-solid fa-box"></i>
+
+                    Product Master
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="/purchase">
+
+                    <i class="fa-solid fa-cart-plus"></i>
+
+                    Purchase
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="/barcode">
+
+                    <i class="fa-solid fa-barcode"></i>
+
+                    Barcode Scanner
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="/stock">
+
+                    <i class="fa-solid fa-warehouse"></i>
+
+                    Stock Management
+
+                </a>
+
+            </li>
+
+
+            <li class="active">
+
+                <a href="/sold-products">
+
+                    <i class="fa-solid fa-check-circle"></i>
+
+                    Sold Products
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h4 class="mb-0">
+
+                    Sold Products
+
+                </h4>
+
+                <small class="text-muted">
+
+                    Manage Sold Product History
+
+                </small>
+
+            </div>
+
+
+            <!-- MANUAL SELL BUTTON -->
+
+            <button
+                type="button"
+                class="btn btn-success"
+                data-bs-toggle="modal"
+                data-bs-target="#manualSellModal">
+
+                <i class="fa-solid fa-cart-shopping me-1"></i>
+
+                Manual Sell
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SEARCH & FILTER
+        ================================================== -->
+
+        <div class="card shadow-sm border-0 mt-4">
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="col-lg-4">
+
+                        <label class="form-label fw-semibold">
+
+                            Search
+
+                        </label>
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="searchSold"
+                            placeholder="Search Barcode / IMEI">
+
+                    </div>
+
+
+
+                    <!-- DATE -->
+
+                    <div class="col-lg-3">
+
+                        <label class="form-label fw-semibold">
+
+                            Sold Date
+
+                        </label>
+
+                        <input
+                            type="date"
+                            class="form-control"
+                            id="soldDate">
+
+                    </div>
+
+
+
+                    <!-- SOLD BY -->
+
+                    <div class="col-lg-3">
+
+                        <label class="form-label fw-semibold">
+
+                            Sold By
+
+                        </label>
+
+                        <select
+                            class="form-select"
+                            id="soldBy">
+
+                            <option value="">
+
+                                All Sales
+
+                            </option>
+
+                            <option value="manual">
+
+                                Manual Sale
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- SEARCH BUTTON -->
+
+                    <div class="col-lg-2 d-flex align-items-end">
+
+                        <button
+                            type="button"
+                            class="btn btn-primary w-100"
+                            id="searchButton">
+
+                            <i
+                                class="fa-solid fa-magnifying-glass me-1">
+                            </i>
+
+                            Search
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SUMMARY
+        ================================================== -->
+
+        <div class="row mt-4 g-3">
+
+
+            <!-- TOTAL -->
+
+            <div class="col-md-4">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body">
+
+                        <small class="text-muted">
+
+                            Total Sold
+
+                        </small>
+
+                        <h4
+                            class="mb-0"
+                            id="totalSold">
+
+                            0
+
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TODAY -->
+
+            <div class="col-md-4">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body">
+
+                        <small class="text-muted">
+
+                            Sold Today
+
+                        </small>
+
+                        <h4
+                            class="mb-0 text-success"
+                            id="todaySold">
+
+                            0
+
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AMOUNT -->
+
+            <div class="col-md-4">
+
+                <div class="card shadow-sm border-0">
+
+                    <div class="card-body">
+
+                        <small class="text-muted">
+
+                            Total Sales Amount
+
+                        </small>
+
+                        <h4
+                            class="mb-0 text-primary"
+                            id="totalSalesAmount">
+
+                            ₹0
+
+                        </h4>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             SOLD PRODUCTS TABLE
+        ================================================== -->
+
+        <div class="card shadow-sm border-0 mt-4 mb-4">
+
+
+            <div
+                class="card-header bg-white d-flex justify-content-between align-items-center">
+
+                <h5 class="mb-0">
+
+                    Sold Product List
+
+                </h5>
+
+
+                <span
+                    class="badge bg-primary"
+                    id="soldCount">
+
+                    0 Records
+
+                </span>
+
+            </div>
+
+
+            <div class="card-body">
+
+
+                <div class="table-responsive">
+
+
+                    <table
+                        class="table table-hover align-middle">
+
+
+                        <thead class="table-light">
+
+
+                            <tr>
+
+                                <th>#</th>
+
+                                <th>Barcode</th>
+
+                                <th>IMEI</th>
+
+                                <th>Brand</th>
+
+                                <th>Product</th>
+
+                                <th>Model</th>
+
+                                <th>Variant</th>
+
+                                <th>Color</th>
+
+                                <th>Sold Date</th>
+
+                                <th>Sold By</th>
+
+                                <th>Status</th>
+
+                                <th width="100">
+
+                                    Action
+
+                                </th>
+
+                            </tr>
+
+
+                        </thead>
+
+
+
+                        <tbody
+                            id="soldProductTable">
+
+
+                            <tr>
+
+                                <td
+                                    colspan="12"
+                                    class="text-center text-muted py-4">
+
+                                    Loading sold products...
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     MANUAL SELL MODAL
+========================================================== -->
+
+<div
+    class="modal fade"
+    id="manualSellModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+
+    <div
+        class="modal-dialog modal-lg modal-dialog-centered">
+
+
+        <div class="modal-content">
+
+
+            <!-- MODAL HEADER -->
+
+            <div class="modal-header bg-primary text-white">
+
+
+                <h5 class="modal-title">
+
+                    <i class="fa-solid fa-cart-shopping me-2"></i>
+
+                    Manual Sell
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
+
+
+            </div>
+
+
+
+            <!-- MODAL BODY -->
+
+            <div class="modal-body">
+
+
+                <div
+                    id="sellMessage"
+                    class="alert d-none">
+                </div>
+
+
+
+                <form id="manualSellForm">
+
+
+                    <!-- IMEI -->
+
+                    <div class="mb-3">
+
+                        <label
+                            class="form-label fw-semibold">
+
+                            IMEI Number
+                            <span class="text-danger">*</span>
+
+                        </label>
+
+
+                        <input
+                            type="text"
+                            class="form-control form-control-lg"
+                            id="sellImei"
+                            placeholder="Enter IMEI Number"
+                            autocomplete="off"
+                            required>
+
+
+                        <small class="text-muted">
+
+                            Enter the IMEI saved in Stock Management.
+
+                        </small>
+
+                    </div>
+
+
+
+                    <div class="row g-3 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Product Name</label>
+                            <input type="text" class="form-control form-control-lg" id="sellProductName" placeholder="Product name will appear automatically" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Date</label>
+                            <input type="date" class="form-control form-control-lg" id="sellDate" readonly>
+                        </div>
+                    </div>
+
+                </form>
+
+
+            </div>
+
+
+
+            <!-- MODAL FOOTER -->
+
+            <div class="modal-footer">
+
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    form="manualSellForm"
+                    class="btn btn-success"
+                    id="confirmSellButton">
+
+                    <i class="fa-solid fa-check me-1"></i>
+
+                    Confirm Sell
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     VIEW SALE MODAL
+========================================================== -->
+
+<div
+    class="modal fade"
+    id="viewSaleModal"
+    tabindex="-1"
+    aria-hidden="true">
+
+
+    <div
+        class="modal-dialog modal-lg modal-dialog-centered">
+
+
+        <div class="modal-content">
+
+
+            <div class="modal-header bg-dark text-white">
+
+                <h5 class="modal-title">
+
+                    <i class="fa-solid fa-receipt me-2"></i>
+
+                    Sale Details
+
+                </h5>
+
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+
+
+            <div class="modal-body">
+
+
+                <div class="row g-3">
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Invoice
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewInvoice">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Sold Date
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewDate">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Brand
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewBrand">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Product
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewProduct">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Model
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewModel">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Barcode
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewBarcode">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            IMEI
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewImei">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Selling Price
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewSellingPrice">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Payment
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewPayment">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Customer
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewCustomer">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Phone
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewPhone">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6">
+
+                        <label class="text-muted">
+
+                            Status
+
+                        </label>
+
+                        <div
+                            class="fw-semibold"
+                            id="viewStatus">
+
+                            -
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================== -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+/* =========================================================
+   API
+========================================================= */
+
+const SOLD_API = "/api/sold-products";
+
+
+/* =========================================================
+   JWT
+========================================================= */
+
+const token =
+    localStorage.getItem("token");
+
+
+if (!token) {
+
+    alert("Please Login First");
+
+    window.location.href = "/login";
+
+}
+
+
+/* =========================================================
+   DOM ELEMENTS
+========================================================= */
+
+const soldProductTable =
+    document.getElementById(
+        "soldProductTable"
+    );
+
+
+const searchSold =
+    document.getElementById(
+        "searchSold"
+    );
+
+
+const soldDate =
+    document.getElementById(
+        "soldDate"
+    );
+
+
+const soldBy =
+    document.getElementById(
+        "soldBy"
+    );
+
+
+const manualSellForm =
+    document.getElementById(
+        "manualSellForm"
+    );
+
+
+const sellImei =
+    document.getElementById(
+        "sellImei"
+    );
+
+
+const sellProductName =
+    document.getElementById("sellProductName");
+
+const sellDate =
+    document.getElementById("sellDate");
+
+let previewedStock = null;
+
+
+/* =========================================================
+   DATA
+========================================================= */
+
+let allSales = [];
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        setSellDate();
+        loadSoldProducts();
+
+    }
+);
+
+
+/* =========================================================
+   LOAD SOLD PRODUCTS
+========================================================= */
+
+async function loadSoldProducts() {
+
+    try {
+
+        soldProductTable.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="12"
+                    class="text-center text-muted py-4">
+
+                    Loading sold products...
+
+                </td>
+
+            </tr>
+
+        `;
+
+
+        const search =
+            searchSold.value
+                .trim();
+
+
+        let url =
+            SOLD_API;
+
+
+        if (search) {
+
+            url +=
+                "?search=" +
+                encodeURIComponent(search);
+
+        }
+
+
+        const response =
+            await fetch(
+                url,
+                {
+                    method: "GET",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`,
+
+                        "Content-Type":
+                            "application/json"
+
+                    }
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.message ||
+                "Failed to load sold products"
+            );
+
+        }
+
+
+        allSales =
+            result.data || [];
+
+
+        renderSoldProducts(
+            allSales
+        );
+
+
+        updateSummary(
+            allSales
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Load Sold Products Error:",
+            error
+        );
+
+
+        soldProductTable.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="12"
+                    class="text-center text-danger py-4">
+
+                    Failed to load sold products
+
+                </td>
+
+            </tr>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER SOLD PRODUCTS
+========================================================= */
+
+function renderSoldProducts(
+    sales
+) {
+
+    let filtered =
+        [...sales];
+
+
+    /* DATE FILTER */
+
+    const selectedDate =
+        soldDate.value;
+
+
+    if (selectedDate) {
+
+        filtered =
+            filtered.filter(
+                sale => {
+
+                    if (!sale.soldDate) {
+
+                        return false;
+
+                    }
+
+
+                    const date =
+                        new Date(
+                            sale.soldDate
+                        );
+
+
+                    const year =
+                        date.getFullYear();
+
+
+                    const month =
+                        String(
+                            date.getMonth() + 1
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    const day =
+                        String(
+                            date.getDate()
+                        ).padStart(
+                            2,
+                            "0"
+                        );
+
+
+                    const saleDate =
+                        `${year}-${month}-${day}`;
+
+
+                    return (
+                        saleDate ===
+                        selectedDate
+                    );
+
+                }
+            );
+
+    }
+
+
+    /* SOLD BY FILTER */
+
+    if (
+        soldBy.value === "manual"
+    ) {
+
+        filtered =
+            filtered.filter(
+                sale =>
+                    !sale.soldBy
+            );
+
+    }
+
+
+    document.getElementById(
+        "soldCount"
+    ).textContent =
+        `${filtered.length} Record${
+            filtered.length !== 1
+                ? "s"
+                : ""
+        }`;
+
+
+    if (!filtered.length) {
+
+        soldProductTable.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="12"
+                    class="text-center text-muted py-4">
+
+                    No sold products available
+
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    soldProductTable.innerHTML =
+        filtered
+            .map(
+                (sale, index) => {
+
+                    const product =
+                        sale.product || {};
+
+
+                    const brand =
+                        product.brand || {};
+
+
+                    return `
+
+                        <tr>
+
+                            <td>
+
+                                ${index + 1}
+
+                            </td>
+
+
+                            <td>
+
+                                ${escapeHtml(
+                                    sale.barcode ||
+                                    "-"
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                ${escapeHtml(
+                                    sale.imei ||
+                                    "-"
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                ${escapeHtml(
+                                    brand.name ||
+                                    "-"
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+
+                                    ${escapeHtml(
+                                        product.productName ||
+                                        "-"
+                                    )}
+
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                ${escapeHtml(
+                                    product.model ||
+                                    "-"
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                ${escapeHtml(
+                                    product.variant ||
+                                    "-"
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                ${escapeHtml(
+                                    product.color ||
+                                    "-"
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                ${formatDate(
+                                    sale.soldDate
+                                )}
+
+                            </td>
+
+
+                            <td>
+
+                                ${
+                                    sale.soldBy
+                                        ? "User"
+                                        : "Manual Sale"
+                                }
+
+                            </td>
+
+
+                            <td>
+
+                                ${
+                                    sale.status ===
+                                    "sold"
+
+                                    ?
+
+                                    `<span
+                                        class="badge bg-success">
+                                        Sold
+                                    </span>`
+
+                                    :
+
+                                    `<span
+                                        class="badge bg-secondary">
+                                        ${escapeHtml(
+                                            sale.status ||
+                                            "-"
+                                        )}
+                                    </span>`
+                                }
+
+                            </td>
+
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="btn btn-sm btn-outline-primary"
+                                    onclick="viewSale('${sale._id}')"
+                                    title="View Sale">
+
+                                    <i
+                                        class="fa-solid fa-eye">
+                                    </i>
+
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================================================
+   UPDATE SUMMARY
+========================================================= */
+
+function updateSummary(
+    sales
+) {
+
+    const total =
+        sales.length;
+
+
+    const today =
+        new Date();
+
+
+    const todayString =
+        today.toISOString()
+            .split("T")[0];
+
+
+    const todaySales =
+        sales.filter(
+            sale => {
+
+                if (!sale.soldDate) {
+
+                    return false;
+
+                }
+
+
+                const date =
+                    new Date(
+                        sale.soldDate
+                    );
+
+
+                const dateString =
+                    date.toISOString()
+                        .split("T")[0];
+
+
+                return (
+                    dateString ===
+                    todayString
+                );
+
+            }
+        );
+
+
+    const totalAmount =
+        sales.reduce(
+            (
+                total,
+                sale
+            ) => {
+
+                return (
+                    total +
+                    Number(
+                        sale.sellingPrice ||
+                        0
+                    )
+                );
+
+            },
+            0
+        );
+
+
+    document.getElementById(
+        "totalSold"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "todaySold"
+    ).textContent =
+        todaySales.length;
+
+
+    document.getElementById(
+        "totalSalesAmount"
+    ).textContent =
+        "₹" +
+        totalAmount.toLocaleString(
+            "en-IN"
+        );
+
+}
+
+
+/* =========================================================
+   SEARCH BUTTON
+========================================================= */
+
+document
+    .getElementById(
+        "searchButton"
+    )
+    .addEventListener(
+        "click",
+        function () {
+
+            loadSoldProducts();
+
+        }
+    );
+
+
+/* =========================================================
+   ENTER KEY SEARCH
+========================================================= */
+
+searchSold.addEventListener(
+    "keypress",
+    function (event) {
+
+        if (
+            event.key ===
+            "Enter"
+        ) {
+
+            loadSoldProducts();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   DATE FILTER
+========================================================= */
+
+soldDate.addEventListener(
+    "change",
+    function () {
+
+        renderSoldProducts(
+            allSales
+        );
+
+    }
+);
+
+
+/* =========================================================
+   SOLD BY FILTER
+========================================================= */
+
+soldBy.addEventListener(
+    "change",
+    function () {
+
+        renderSoldProducts(
+            allSales
+        );
+
+    }
+);
+
+
+/* =========================================================
+   IMEI LOOKUP
+========================================================= */
+
+sellImei.addEventListener(
+    "blur",
+    async function () {
+
+        const imei =
+            sellImei.value.trim();
+
+
+        if (!imei) {
+
+            return;
+
+        }
+
+
+        await previewStockByImei(
+            imei
+        );
+
+    }
+);
+
+
+/* =========================================================
+   PREVIEW STOCK
+========================================================= */
+
+async function previewStockByImei(imei) {
+    try {
+        sellProductName.value = "";
+        previewedStock = null;
+        sellMessage.classList.add("d-none");
+
+        const response = await fetch(
+            `/api/barcode/search/imei/${encodeURIComponent(imei)}`,
+            { headers: { "Authorization": `Bearer ${token}` } }
+        );
+
+        const result = await response.json();
+        if (!response.ok || !result.success) {
+            throw new Error(result.message || "Product not found for this IMEI.");
+        }
+
+        const stock = result.data;
+        if (!stock) throw new Error("No stock found for this IMEI.");
+
+        sellProductName.value = stock.product?.productName || "-";
+        previewedStock = stock;
+    } catch (error) {
+        sellProductName.value = "";
+        previewedStock = null;
+        showSellMessage(error.message || "Product not found for this IMEI.", "danger");
+    }
+}
+
+function setSellDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    sellDate.value = `${year}-${month}-${day}`;
+}
+
+
+/* =========================================================
+   MANUAL SELL
+========================================================= */
+
+manualSellForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const imei = sellImei.value.trim();
+    if (!imei) {
+        showSellMessage("Please enter IMEI number.", "danger");
+        sellImei.focus();
+        return;
+    }
+    if (!previewedStock) {
+        showSellMessage("Please enter a valid IMEI and wait for the product name to appear.", "danger");
+        return;
+    }
+
+    if (!confirm(`Sell ${sellProductName.value || "this product"}?`)) return;
+
+    try {
+        confirmSellButton.disabled = true;
+        confirmSellButton.innerHTML = `<span class="spinner-border spinner-border-sm me-1"></span>Selling...`;
+
+        const response = await fetch(SOLD_API, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify({
+                imei: imei,
+                // Hidden from user; kept for the current backend contract.
+                sellingPrice: Number(previewedStock.sellingPrice || previewedStock.product?.sellingPrice || 0)
+            })
+        });
+
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.message || "Failed to sell product");
+
+        alert("Product sold successfully!");
+        const modal = bootstrap.Modal.getInstance(document.getElementById("manualSellModal"));
+        if (modal) modal.hide();
+        resetSellForm();
+        await loadSoldProducts();
+    } catch (error) {
+        console.error("Manual Sell Error:", error);
+        showSellMessage(error.message || "Failed to sell product.", "danger");
+    } finally {
+        confirmSellButton.disabled = false;
+        confirmSellButton.innerHTML = `<i class="fa-solid fa-check me-1"></i>Confirm Sell`;
+    }
+});
+
+
+/* =========================================================
+   SHOW SELL MESSAGE
+========================================================= */
+
+function showSellMessage(
+    message,
+    type
+) {
+
+    sellMessage.className =
+        `alert alert-${type}`;
+
+
+    sellMessage.textContent =
+        message;
+
+
+    sellMessage.classList.remove(
+        "d-none"
+    );
+
+}
+
+
+/* =========================================================
+   RESET SELL FORM
+========================================================= */
+
+function resetSellForm() {
+    manualSellForm.reset();
+    sellProductName.value = "";
+    previewedStock = null;
+    sellMessage.classList.add("d-none");
+    setSellDate();
+}
+
+
+/* =========================================================
+   MODAL RESET
+========================================================= */
+
+document
+    .getElementById(
+        "manualSellModal"
+    )
+    .addEventListener(
+        "hidden.bs.modal",
+        function () {
+
+            resetSellForm();
+
+        }
+    );
+
+
+/* =========================================================
+   VIEW SALE
+========================================================= */
+
+async function viewSale(
+    id
+) {
+
+    try {
+
+        const response =
+            await fetch(
+                `${SOLD_API}/${id}`,
+                {
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${token}`
+
+                    }
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.message ||
+                "Failed to load sale"
+            );
+
+        }
+
+
+        const sale =
+            result.data;
+
+
+        if (!sale) {
+
+            throw new Error(
+                "Sale data not found"
+            );
+
+        }
+
+
+        const product =
+            sale.product || {};
+
+
+        const brand =
+            product.brand || {};
+
+
+        document.getElementById(
+            "viewInvoice"
+        ).textContent =
+            sale.invoiceNo || "-";
+
+
+        document.getElementById(
+            "viewDate"
+        ).textContent =
+            formatDateTime(
+                sale.soldDate
+            );
+
+
+        document.getElementById(
+            "viewBrand"
+        ).textContent =
+            brand.name || "-";
+
+
+        document.getElementById(
+            "viewProduct"
+        ).textContent =
+            product.productName || "-";
+
+
+        document.getElementById(
+            "viewModel"
+        ).textContent =
+            product.model || "-";
+
+
+        document.getElementById(
+            "viewBarcode"
+        ).textContent =
+            sale.barcode || "-";
+
+
+        document.getElementById(
+            "viewImei"
+        ).textContent =
+            sale.imei || "-";
+
+
+        document.getElementById(
+            "viewSellingPrice"
+        ).textContent =
+            "₹" +
+            Number(
+                sale.sellingPrice || 0
+            ).toLocaleString(
+                "en-IN"
+            );
+
+
+        document.getElementById(
+            "viewPayment"
+        ).textContent =
+            sale.paymentMethod || "-";
+
+
+        document.getElementById(
+            "viewCustomer"
+        ).textContent =
+            sale.customerName || "-";
+
+
+        document.getElementById(
+            "viewPhone"
+        ).textContent =
+            sale.customerPhone || "-";
+
+
+        document.getElementById(
+            "viewStatus"
+        ).innerHTML =
+            sale.status === "sold"
+
+            ?
+
+            `<span class="badge bg-success">
+                Sold
+            </span>`
+
+            :
+
+            `<span class="badge bg-secondary">
+                ${escapeHtml(
+                    sale.status || "-"
+                )}
+            </span>`;
+
+
+        const modalElement =
+            document.getElementById(
+                "viewSaleModal"
+            );
+
+
+        const modal =
+            new bootstrap.Modal(
+                modalElement
+            );
+
+
+        modal.show();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "View Sale Error:",
+            error
+        );
+
+
+        alert(
+            "Error: " +
+            error.message
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   FORMAT DATE
+========================================================= */
+
+function formatDate(
+    date
+) {
+
+    if (!date) {
+
+        return "-";
+
+    }
+
+
+    return new Date(
+        date
+    ).toLocaleDateString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   FORMAT DATE + TIME
+========================================================= */
+
+function formatDateTime(
+    date
+) {
+
+    if (!date) {
+
+        return "-";
+
+    }
+
+
+    return new Date(
+        date
+    ).toLocaleString(
+        "en-IN",
+        {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+            hour: "2-digit",
+            minute: "2-digit"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(
+    value
+) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Purchase | Gurjeet Electronics ERP</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<div class="wrapper">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            <span>Gurjeet ERP</span>
+
+        </div>
+
+        <ul class="menu">
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/brands">
+                    <i class="fa-solid fa-tags"></i>
+                    Brand Management
+                </a>
+            </li>
+
+            <li>
+                <a href="/products">
+                    <i class="fa-solid fa-box"></i>
+                    Product Master
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/purchase">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    Purchase
+                </a>
+            </li>
+
+            <li>
+                <a href="/barcode">
+                    <i class="fa-solid fa-barcode"></i>
+                    Barcode Scanner
+                </a>
+            </li>
+
+            <li>
+                <a href="/stock">
+                    <i class="fa-solid fa-warehouse"></i>
+                    Stock Management
+                </a>
+            </li>
+
+            <li>
+                <a href="/sold-products">
+                    <i class="fa-solid fa-check-circle"></i>
+                    Sold Products
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h4 class="mb-0">
+                    Purchase Entry
+                </h4>
+
+                <small class="text-muted">
+                    Add New Stock
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= PURCHASE FORM ================= -->
+
+        <div class="card shadow-sm border-0 mt-4">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+                    Purchase Details
+                </h5>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <form id="purchaseForm">
+
+                    <div class="row">
+
+                        <!-- INVOICE -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Invoice Number
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="invoiceNo"
+                                placeholder="Enter Invoice Number"
+                                required>
+
+                        </div>
+
+
+                        <!-- DATE -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Purchase Date
+                            </label>
+
+                            <input
+                                type="date"
+                                class="form-control"
+                                id="purchaseDate"
+                                required>
+
+                        </div>
+
+
+                        <!-- PRODUCT -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Product
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="product"
+                                required>
+
+                                <option value="">
+                                    Loading Products...
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- BARCODE -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Barcode
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="barcode"
+                                placeholder="Scan or Enter Barcode">
+
+                        </div>
+
+
+                        <!-- IMEI -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                IMEI
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="imei"
+                                placeholder="Enter IMEI">
+
+                        </div>
+
+
+                        <!-- SERIAL -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Serial Number
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="serialNo"
+                                placeholder="Enter Serial Number">
+
+                        </div>
+
+
+                        <!-- QUANTITY -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Quantity
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="quantity"
+                                placeholder="Enter Quantity"
+                                min="1"
+                                value="1"
+                                required>
+
+                        </div>
+
+
+                        <!-- PURCHASE PRICE -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Purchase Price
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="purchasePrice"
+                                placeholder="Enter Purchase Price"
+                                min="0"
+                                required>
+
+                        </div>
+
+
+                        <!-- GST -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                GST (%)
+                            </label>
+
+                            <input
+                                type="number"
+                                class="form-control"
+                                id="gst"
+                                placeholder="Enter GST"
+                                min="0"
+                                max="100"
+                                value="18">
+
+                        </div>
+
+
+                        <!-- SUPPLIER NAME -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Supplier Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="supplierName"
+                                placeholder="Enter Supplier Name">
+
+                        </div>
+
+
+                        <!-- SUPPLIER PHONE -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Supplier Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="supplierPhone"
+                                placeholder="Enter Supplier Phone">
+
+                        </div>
+
+
+                        <!-- STATUS -->
+
+                        <div class="col-md-4 mb-3">
+
+                            <label class="form-label">
+                                Status
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="status">
+
+                                <option value="received">
+                                    Received
+                                </option>
+
+                                <option value="pending">
+                                    Pending
+                                </option>
+
+                                <option value="cancelled">
+                                    Cancelled
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- TOTAL PREVIEW -->
+
+                    <div class="alert alert-light border mt-2">
+
+                        <div class="row">
+
+                            <div class="col-md-4">
+
+                                <strong>
+                                    Subtotal:
+                                </strong>
+
+                                ₹<span id="subtotalPreview">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <strong>
+                                    GST Amount:
+                                </strong>
+
+                                ₹<span id="gstPreview">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <div class="col-md-4">
+
+                                <strong>
+                                    Total:
+                                </strong>
+
+                                ₹<span id="totalPreview">
+                                    0
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <div class="text-end mt-3">
+
+                        <button
+                            type="reset"
+                            class="btn btn-secondary me-2">
+
+                            <i class="fa-solid fa-rotate-left me-1"></i>
+
+                            Reset
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-success"
+                            id="savePurchaseBtn">
+
+                            <i class="fa-solid fa-floppy-disk me-1"></i>
+
+                            Save Purchase
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= PURCHASE HISTORY ================= -->
+
+        <div class="card shadow-sm border-0 mt-4">
+
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+
+                <h5 class="mb-0">
+                    Purchase History
+                </h5>
+
+                <span
+                    class="badge bg-primary"
+                    id="purchaseCount">
+
+                    0 Purchases
+
+                </span>
+
+            </div>
+
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+
+                    <table class="table table-hover align-middle">
+
+                        <thead class="table-light">
+
+                            <tr>
+
+                                <th>#</th>
+
+                                <th>Invoice</th>
+
+                                <th>Date</th>
+
+                                <th>Product</th>
+
+                                <th>Barcode</th>
+
+                                <th>IMEI</th>
+
+                                <th>Qty</th>
+
+                                <th>Purchase Price</th>
+
+                                <th>Total</th>
+
+                                <th>Status</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="purchaseTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="10"
+                                    class="text-center text-muted">
+
+                                    Loading purchases...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- ================= BOOTSTRAP JS ================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script>
+
+// =====================================================
+// API
+// =====================================================
+
+const PURCHASE_API = "/api/purchase";
+
+const PRODUCT_API = "/api/products";
+
+
+// =====================================================
+// DOM
+// =====================================================
+
+const purchaseForm =
+    document.getElementById("purchaseForm");
+
+const productSelect =
+    document.getElementById("product");
+
+const purchaseTable =
+    document.getElementById("purchaseTable");
+
+const purchaseCount =
+    document.getElementById("purchaseCount");
+
+const savePurchaseBtn =
+    document.getElementById("savePurchaseBtn");
+
+
+// =====================================================
+// PAGE LOAD
+// =====================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    async function () {
+
+        setDefaultDate();
+
+        await loadProducts();
+
+        await loadPurchases();
+
+    }
+);
+
+
+// =====================================================
+// DEFAULT DATE
+// =====================================================
+
+function setDefaultDate() {
+
+    const dateInput =
+        document.getElementById("purchaseDate");
+
+    const today =
+        new Date()
+            .toISOString()
+            .split("T")[0];
+
+    dateInput.value = today;
+
+}
+
+
+// =====================================================
+// LOAD PRODUCTS
+// =====================================================
+
+async function loadProducts() {
+
+    try {
+
+        productSelect.innerHTML = `
+            <option value="">
+                Loading Products...
+            </option>
+        `;
+
+
+        const response =
+            await fetch(PRODUCT_API);
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.message ||
+                "Failed to load products"
+            );
+
+        }
+
+
+        const products =
+            result.data ||
+            result.products ||
+            [];
+
+
+        productSelect.innerHTML = `
+            <option value="">
+                Select Product
+            </option>
+        `;
+
+
+        products.forEach(
+            product => {
+
+                const brandName =
+                    product.brand &&
+                    product.brand.name
+                        ? product.brand.name
+                        : "";
+
+
+                const displayName =
+                    [
+                        brandName,
+                        product.productName,
+                        product.variant
+                    ]
+                    .filter(Boolean)
+                    .join(" - ");
+
+
+                productSelect.innerHTML += `
+                    <option value="${product._id}">
+                        ${escapeHtml(displayName)}
+                    </option>
+                `;
+
+            }
+        );
+
+
+        if (!products.length) {
+
+            productSelect.innerHTML = `
+                <option value="">
+                    No products available
+                </option>
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Product Load Error:",
+            error
+        );
+
+
+        productSelect.innerHTML = `
+            <option value="">
+                Failed to load products
+            </option>
+        `;
+
+
+        alert(
+            "Failed to load products: " +
+            error.message
+        );
+
+    }
+
+}
+
+
+// =====================================================
+// SAVE PURCHASE
+// =====================================================
+
+purchaseForm.addEventListener(
+    "submit",
+    async function (event) {
+
+        event.preventDefault();
+
+
+        const body = {
+
+            invoiceNo:
+                document
+                    .getElementById("invoiceNo")
+                    .value
+                    .trim(),
+
+            purchaseDate:
+                document
+                    .getElementById("purchaseDate")
+                    .value,
+
+            product:
+                document
+                    .getElementById("product")
+                    .value,
+
+            barcode:
+                document
+                    .getElementById("barcode")
+                    .value
+                    .trim(),
+
+            imei:
+                document
+                    .getElementById("imei")
+                    .value
+                    .trim(),
+
+            serialNo:
+                document
+                    .getElementById("serialNo")
+                    .value
+                    .trim(),
+
+            quantity:
+                Number(
+                    document
+                        .getElementById("quantity")
+                        .value
+                ),
+
+            purchasePrice:
+                Number(
+                    document
+                        .getElementById("purchasePrice")
+                        .value
+                ),
+
+            gst:
+                Number(
+                    document
+                        .getElementById("gst")
+                        .value || 0
+                ),
+
+            supplierName:
+                document
+                    .getElementById("supplierName")
+                    .value
+                    .trim(),
+
+            supplierPhone:
+                document
+                    .getElementById("supplierPhone")
+                    .value
+                    .trim(),
+
+            status:
+                document
+                    .getElementById("status")
+                    .value
+
+        };
+
+
+        // ================= VALIDATION =================
+
+        if (!body.invoiceNo) {
+
+            alert("Invoice number is required.");
+
+            return;
+
+        }
+
+
+        if (!body.purchaseDate) {
+
+            alert("Purchase date is required.");
+
+            return;
+
+        }
+
+
+        if (!body.product) {
+
+            alert("Please select a product.");
+
+            return;
+
+        }
+
+
+        if (
+            !body.quantity ||
+            body.quantity < 1
+        ) {
+
+            alert("Quantity must be at least 1.");
+
+            return;
+
+        }
+
+
+        if (
+            isNaN(body.purchasePrice) ||
+            body.purchasePrice < 0
+        ) {
+
+            alert("Please enter a valid purchase price.");
+
+            return;
+
+        }
+
+
+        try {
+
+            savePurchaseBtn.disabled = true;
+
+            savePurchaseBtn.innerHTML = `
+                <span
+                    class="spinner-border spinner-border-sm me-1">
+                </span>
+                Saving...
+            `;
+
+
+            const response =
+                await fetch(
+                    PURCHASE_API,
+                    {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+
+                        body:
+                            JSON.stringify(body)
+
+                    }
+                );
+
+
+            const result =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    result.message ||
+                    result.error ||
+                    "Failed to create purchase"
+                );
+
+            }
+
+
+            alert(
+                "Purchase created successfully.\nStock updated successfully."
+            );
+
+
+            purchaseForm.reset();
+
+            setDefaultDate();
+
+
+            document.getElementById("quantity").value = 1;
+
+            document.getElementById("gst").value = 18;
+
+            document.getElementById("status").value =
+                "received";
+
+
+            updateTotalPreview();
+
+
+            await loadPurchases();
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Purchase Save Error:",
+                error
+            );
+
+
+            alert(
+                "Purchase Error: " +
+                error.message
+            );
+
+        }
+
+        finally {
+
+            savePurchaseBtn.disabled = false;
+
+            savePurchaseBtn.innerHTML = `
+                <i class="fa-solid fa-floppy-disk me-1"></i>
+                Save Purchase
+            `;
+
+        }
+
+    }
+);
+
+
+// =====================================================
+// LOAD PURCHASE HISTORY
+// =====================================================
+
+async function loadPurchases() {
+
+    try {
+
+        purchaseTable.innerHTML = `
+            <tr>
+                <td
+                    colspan="10"
+                    class="text-center text-muted">
+
+                    Loading purchases...
+
+                </td>
+            </tr>
+        `;
+
+
+        const response =
+            await fetch(PURCHASE_API);
+
+
+        const result =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                result.message ||
+                "Failed to load purchases"
+            );
+
+        }
+
+
+        const purchases =
+            result.data || [];
+
+
+        purchaseCount.textContent =
+            `${purchases.length} Purchase${purchases.length !== 1 ? "s" : ""}`;
+
+
+        if (!purchases.length) {
+
+            purchaseTable.innerHTML = `
+                <tr>
+                    <td
+                        colspan="10"
+                        class="text-center text-muted py-4">
+
+                        No purchase records available
+
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+
+        purchaseTable.innerHTML =
+            purchases.map(
+                (purchase, index) => {
+
+                    const product =
+                        purchase.product;
+
+
+                    const productName =
+                        product &&
+                        product.productName
+                            ? product.productName
+                            : "-";
+
+
+                    return `
+
+                        <tr>
+
+                            <td>
+                                ${index + 1}
+                            </td>
+
+                            <td>
+                                <strong>
+                                    ${escapeHtml(
+                                        purchase.invoiceNo || "-"
+                                    )}
+                                </strong>
+                            </td>
+
+                            <td>
+                                ${formatDate(
+                                    purchase.purchaseDate
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    productName
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    purchase.barcode || "-"
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    purchase.imei || "-"
+                                )}
+                            </td>
+
+                            <td>
+                                ${purchase.quantity || 0}
+                            </td>
+
+                            <td>
+                                ₹${Number(
+                                    purchase.purchasePrice || 0
+                                ).toLocaleString("en-IN")}
+                            </td>
+
+                            <td>
+                                ₹${Number(
+                                    purchase.totalAmount || 0
+                                ).toLocaleString("en-IN")}
+                            </td>
+
+                            <td>
+
+                                ${
+                                    purchase.status === "received"
+
+                                        ? `<span class="badge bg-success">Received</span>`
+
+                                        : purchase.status === "pending"
+
+                                            ? `<span class="badge bg-warning text-dark">Pending</span>`
+
+                                            : `<span class="badge bg-danger">Cancelled</span>`
+                                }
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Purchase Load Error:",
+            error
+        );
+
+
+        purchaseTable.innerHTML = `
+            <tr>
+                <td
+                    colspan="10"
+                    class="text-center text-danger">
+
+                    Failed to load purchase records
+
+                </td>
+            </tr>
+        `;
+
+    }
+
+}
+
+
+// =====================================================
+// TOTAL PREVIEW
+// =====================================================
+
+function updateTotalPreview() {
+
+    const quantity =
+        Number(
+            document.getElementById("quantity").value || 0
+        );
+
+
+    const purchasePrice =
+        Number(
+            document.getElementById("purchasePrice").value || 0
+        );
+
+
+    const gst =
+        Number(
+            document.getElementById("gst").value || 0
+        );
+
+
+    const subtotal =
+        quantity * purchasePrice;
+
+
+    const gstAmount =
+        subtotal * gst / 100;
+
+
+    const total =
+        subtotal + gstAmount;
+
+
+    document.getElementById(
+        "subtotalPreview"
+    ).textContent =
+        subtotal.toLocaleString("en-IN");
+
+
+    document.getElementById(
+        "gstPreview"
+    ).textContent =
+        gstAmount.toLocaleString("en-IN");
+
+
+    document.getElementById(
+        "totalPreview"
+    ).textContent =
+        total.toLocaleString("en-IN");
+
+}
+
+
+// =====================================================
+// TOTAL INPUT EVENTS
+// =====================================================
+
+document
+    .getElementById("quantity")
+    .addEventListener(
+        "input",
+        updateTotalPreview
+    );
+
+
+document
+    .getElementById("purchasePrice")
+    .addEventListener(
+        "input",
+        updateTotalPreview
+    );
+
+
+document
+    .getElementById("gst")
+    .addEventListener(
+        "input",
+        updateTotalPreview
+    );
+
+
+// =====================================================
+// FORM RESET
+// =====================================================
+
+purchaseForm.addEventListener(
+    "reset",
+    function () {
+
+        setTimeout(
+            function () {
+
+                setDefaultDate();
+
+                document.getElementById(
+                    "quantity"
+                ).value = 1;
+
+                document.getElementById(
+                    "gst"
+                ).value = 18;
+
+                document.getElementById(
+                    "status"
+                ).value = "received";
+
+                updateTotalPreview();
+
+            },
+            0
+        );
+
+    }
+);
+
+
+// =====================================================
+// FORMAT DATE
+// =====================================================
+
+function formatDate(dateValue) {
+
+    if (!dateValue) {
+        return "-";
+    }
+
+
+    const date =
+        new Date(dateValue);
+
+
+    if (isNaN(date.getTime())) {
+        return "-";
+    }
+
+
+    return date.toLocaleDateString(
+        "en-IN"
+    );
+
+}
+
+
+// =====================================================
+// ESCAPE HTML
+// =====================================================
+
+function escapeHtml(value) {
+
+    if (
+        value === null ||
+        value === undefined
+    ) {
+
+        return "";
+
+    }
+
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+</script>
+
+</body>
+
+</html>

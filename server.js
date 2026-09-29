@@ -28,7 +28,6 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const brandRoutes = require("./routes/brandRoutes");
 const productRoutes = require("./routes/productRoutes");
-const purchaseRoutes = require("./routes/purchaseRoutes");
 const stockRoutes = require("./routes/stockRoutes");
 const barcodeRoutes = require("./routes/barcodeRoutes");
 const soldProductRoutes = require("./routes/soldProductRoutes");
@@ -101,12 +100,6 @@ app.use(
     productRoutes
 );
 
-// Purchase
-app.use(
-    "/api/purchase",
-    purchaseRoutes
-);
-
 // Stock
 app.use(
     "/api/stock",
@@ -170,6 +163,7 @@ app.get(
 // HTML PAGES
 // =====================================================
 
+// Home
 app.get(
     "/",
     (req, res) => {
@@ -181,6 +175,7 @@ app.get(
     }
 );
 
+// Login
 app.get(
     "/login",
     (req, res) => {
@@ -196,6 +191,7 @@ app.get(
     }
 );
 
+// Register
 app.get(
     "/register",
     (req, res) => {
@@ -211,6 +207,7 @@ app.get(
     }
 );
 
+// Dashboard
 app.get(
     "/dashboard",
     (req, res) => {
@@ -226,6 +223,7 @@ app.get(
     }
 );
 
+// Brands
 app.get(
     "/brands",
     (req, res) => {
@@ -241,6 +239,7 @@ app.get(
     }
 );
 
+// Products
 app.get(
     "/products",
     (req, res) => {
@@ -256,21 +255,7 @@ app.get(
     }
 );
 
-app.get(
-    "/purchase",
-    (req, res) => {
-
-        res.sendFile(
-            path.join(
-                __dirname,
-                "views",
-                "purchase.html"
-            )
-        );
-
-    }
-);
-
+// Stock
 app.get(
     "/stock",
     (req, res) => {
@@ -286,6 +271,7 @@ app.get(
     }
 );
 
+// Barcode
 app.get(
     "/barcode",
     (req, res) => {
@@ -301,6 +287,7 @@ app.get(
     }
 );
 
+// Sold Products
 app.get(
     "/sold-products",
     (req, res) => {

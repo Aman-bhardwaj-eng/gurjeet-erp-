@@ -57,11 +57,10 @@ const productSchema = new mongoose.Schema(
         },
 
         sellingPrice: {
-            type: Number,
-            required: true,
-            min: 0
-        },
-
+    type: Number,
+    default: 0,
+    min: 0
+       },
         warranty: {
             type: Number,
             default: 0,

@@ -466,7 +466,7 @@
                             <tr>
 
                                 <td
-                                    colspan="9"
+                                    colspan="10"
                                     class="text-center text-muted">
 
                                     Loading products...
@@ -578,6 +578,12 @@
                             <label class="form-label">Variant</label>
                             <input type="text" class="form-control" id="variant"
                                    placeholder="Enter Variant">
+                        </div>
+
+                        <!-- COLOR -->
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Color</label>
+                            <input type="text" class="form-control" id="color" placeholder="Enter Color">
                         </div>
 
                         <!-- IMEI -->
@@ -895,7 +901,7 @@ async function loadProducts() {
 
         productTableBody.innerHTML = `
             <tr>
-                <td colspan="9"
+                <td colspan="10"
                     class="text-center text-muted">
                     Loading products...
                 </td>
@@ -939,7 +945,7 @@ async function loadProducts() {
 
         productTableBody.innerHTML = `
             <tr>
-                <td colspan="9"
+                <td colspan="10"
                     class="text-center text-danger">
                     Failed to load products
                 </td>
@@ -990,6 +996,7 @@ function renderProducts() {
                 product.productName,
                 product.model,
                 product.variant,
+                product.color,
                 product.imei
             ]
                 .filter(Boolean)
@@ -1011,7 +1018,7 @@ function renderProducts() {
 
         productTableBody.innerHTML = `
             <tr>
-                <td colspan="9" class="text-center text-muted py-4">
+                <td colspan="10" class="text-center text-muted py-4">
                     No products available
                 </td>
             </tr>
@@ -1060,6 +1067,10 @@ function renderProducts() {
 
                     <td>
                         ${escapeHtml(product.variant || "-")}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(product.color || "-")}
                     </td>
 
                     <td>
@@ -1172,6 +1183,9 @@ productForm.addEventListener(
 
             variant:
                 document.getElementById("variant").value.trim(),
+
+            color:
+                document.getElementById("color").value.trim(),
 
             imei:
                 document.getElementById("imei").value.trim()
@@ -1333,6 +1347,9 @@ async function editProduct(id) {
 
         document.getElementById("variant").value =
             product.variant || "";
+
+        document.getElementById("color").value =
+            product.color || "";
 
         document.getElementById("imei").value =
             product.imei || "";
